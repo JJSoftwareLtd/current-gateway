@@ -16,8 +16,7 @@ class CurrentGatewayBase
         protected string $subdomain,
         protected string $key,
         protected string $endpoint,
-    ) {
-    }
+    ) {}
 
     public function get(string $resource, array $parameters = []): array
     {
@@ -60,8 +59,7 @@ class CurrentGatewayBase
     {
         return $this->getBaseHttp()
             ->$method($path, $data)
-            ->onError($this->errorHandler ?? function () {
-            })
+            ->onError($this->errorHandler ?? function () {})
             ->throwIf($this->throw)
             ->json() ?? [];
     }
